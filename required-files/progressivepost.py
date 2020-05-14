@@ -4,7 +4,7 @@ import requests
 xml_file = "post-schema.xml"
 
 # Set the PJS server URL
-url = "http://desktop-v8i0892:8080/MeterUpdates"
+url = "http://<YourHostname>:<YourPort>/MeterUpdates"
 
 # Set request headers
 header = {'Content-Type':'data/xml', 'Accept':'text/plain', 'Connection':'keep-alive', 'Accept-Encoding':'gzip, deflate, br'}
