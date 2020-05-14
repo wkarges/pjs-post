@@ -44,7 +44,9 @@ It's important to note, this documentation assumes your progressive xml and this
 
 ### Quick Test
 
-Once your python script has been updated, let's run a quick test to make sure everything is working.  Open up a terminal view and path to your python script/progressive xml folder `cd <yourfilepath>`.  Then type `python progressivepost.py` and execute.  You should see a successful response and the meter(s) should update in your PJS viewer and MeterData.xml.  
+Once your python script has been updated, let's run a quick test to make sure everything is working.  Open up a terminal view and path to your python script/progressive xml folder `cd <yourfilepath>`.  Then type `python progressivepost.py` and execute.  You should see a successful response and the meter(s) should update in your PJS viewer and MeterData.xml.
+
+![SuccessfulResponse.png](assets/SuccessfulResponse.png)
 
 If you recieve an error some initial troubleshooting steps:
 
