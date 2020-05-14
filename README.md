@@ -36,7 +36,7 @@ The purpose of this script is simply to merge the local xml with the PJS MeterDa
 
 ## Configure the python script
 
-Inside the [progessivespost.py](required-files/progressivespost.py) file, update the `xml_file` and `url` variables.  The `xml_file` field should exactly match the filename of your progressive xml.  For the `url` you'll just need to update the `Hostname` and `port` fields with your PJS server's hostname and the port you're using, respectively.  If you're instead looking to post Jackpot Hits information, change the file path from `/MeterUpdates` to `/JackpotHit`.
+Inside the [progressivepost.py](required-files/progressivepost.py) file, update the `xml_file` and `url` variables.  The `xml_file` field should exactly match the filename of your progressive xml.  For the `url` you'll just need to update the `Hostname` and `port` fields with your PJS server's hostname and the port you're using, respectively.  If you're instead looking to post Jackpot Hits information, change the file path from `/MeterUpdates` to `/JackpotHit`.
 
 It's important to note, this documentation assumes your progressive xml and this python script are in the same folder, on the same machine as your PJS client.  If your PJS client is on a different server, you'll need to make sure that server is network accessible and can accept incoming requests over your designated port.
 
@@ -44,4 +44,14 @@ It's important to note, this documentation assumes your progressive xml and this
 
 ### Quick Test
 
-Once your python script has been updated, let's run a quick test to make sure everything is working.  Open up a terminal view and path to your python script/progressive xml folder `cd <yourfilepath>`.  
+Once your python script has been updated, let's run a quick test to make sure everything is working.  Open up a terminal view and path to your python script/progressive xml folder `cd <yourfilepath>`.  Then type `python progressivepost.py` and execute.  You should see a successful response and the meter(s) should update in your PJS viewer and MeterData.xml.  
+
+If you recieve an error some initial troubleshooting steps:
+
+*  Open Fiddler or similar sniffing application, make sure the post request can reach the PJS server.
+
+*  Double check that the `Group` and `Level` exactly match your progressive xml.
+
+*  Double check that your `xml_file` and `url` variables are updated correctly.
+
+*  Make abundantly sure your progressive xml and python script are in the same file location.
