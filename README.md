@@ -34,13 +34,15 @@ The purpose of this script is simply to merge the local xml with the PJS MeterDa
 
 ![service-restart.png](assets/service-restart.png)
 
-## Configure the python script
+## Configure the scripts
 
 Inside the [progressivepost.py](required-files/progressivepost.py) file, update the `xml_file` and `url` variables.  The `xml_file` field should exactly match the filename of your progressive xml.  For the `url` you'll just need to update the `Hostname` and `port` fields with your PJS server's hostname and the port you're using, respectively.  If you're instead looking to post Jackpot Hits information, change the file path from `/MeterUpdates` to `/JackpotHit`.
 
 It's important to note, this documentation assumes your progressive xml and this python script are in the same folder, on the same machine as your PJS client.  If your PJS client is on a different server, you'll need to make sure that server is network accessible and can accept incoming requests over your designated port.
 
 ![pythonconfig.png](assets/pythonconfig.png)
+
+Finally, you'll also need to update the [postinit.bat](required-files/postinit.bat) batch file.  Simply uncomment the second line and enter the file path to your progressive.xml and python script behind `cd`.  So long as the file path is accurate, the batch file can live anywhere on your machine.
 
 ### Quick Test
 
@@ -56,4 +58,14 @@ If you recieve an error some initial troubleshooting steps:
 
 *  Double check that your `xml_file` and `url` variables are updated correctly.
 
+*  Make sure your progressive xml matches the required single-line schema.
+
 *  Make abundantly sure your progressive xml and python script are in the same file location.
+
+### Implementing
+
+Once your script is working you'll just need to schedule it to run.  Open up Windows Task Scheduler and create a new task, make sure you set it to run whether or not the user is logged in.  Since Task scheduler only lets you create triggers at most once per minute, you'll need to create multiple triggers spaced out 5-10 seconds from each other.
+
+![Task_Scheduler.png](assets/Task_Scheduler.png)
+
+Finally set your action to *Start a Progam* and path to your previously updated [postinit.bat](required-files/postinit.bat) batch file.  Save your configurations and if everything is setup correctly you should start seeing your PJS Listener updating automatically.
