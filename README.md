@@ -69,3 +69,7 @@ Once your script is working you'll just need to schedule it to run.  Open up Win
 ![Task_Scheduler.png](assets/Task_Scheduler.png)
 
 Finally set your action to *Start a Progam* and path to your previously updated [postinit.bat](required-files/postinit.bat) batch file.  Save your configurations and if everything is setup correctly you should start seeing your PJS Listener updating automatically.
+
+![TaskAction.png](assets/TaskAction.png)
+
+Good luck building!
